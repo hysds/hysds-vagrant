@@ -73,7 +73,7 @@ Vagrant.configure("2") do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
     cd /etc/puppet/modules
-    git clone --single-branch -b develop-es7 https://github.com/hysds/puppet-grq.git grq
+    git clone https://github.com/hysds/puppet-grq.git grq
     cd grq
     ./install.sh
     cd
