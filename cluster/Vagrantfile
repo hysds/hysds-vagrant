@@ -4,7 +4,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "mozart" do |mozart|
     mozart.vm.box = "hysds/mozart"
     mozart.vm.box_version = "4.0.0"
-    mozart.vm.network "private_network", ip: "192.168.56.101"
+    mozart.vm.network "private_network", type: "dhcp"
     mozart.vm.provider "virtualbox" do |vb|
       vb.name = "mozart"
       vb.gui = true
@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "grq" do |grq|
     grq.vm.box = "hysds/grq"
     grq.vm.box_version = "4.0.0"
-    grq.vm.network "private_network", ip: "192.168.56.102"
+    grq.vm.network "private_network", type: "dhcp"
     grq.vm.provider "virtualbox" do |vb|
       vb.name = "grq"
       vb.gui = true
@@ -28,7 +28,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "metrics" do |metrics|
     metrics.vm.box = "hysds/metrics"
     metrics.vm.box_version = "4.0.0"
-    metrics.vm.network "private_network", ip: "192.168.56.103"
+    metrics.vm.network "private_network", type: "dhcp"
     metrics.vm.provider "virtualbox" do |vb|
       vb.name = "metrics"
       vb.gui = true
@@ -40,7 +40,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "factotum" do |factotum|
     factotum.vm.box = "hysds/factotum"
     factotum.vm.box_version = "4.0.0"
-    factotum.vm.network "private_network", ip: "192.168.56.104"
+    factotum.vm.network "private_network", type: "dhcp"
     factotum.vm.provider "virtualbox" do |vb|
       vb.name = "factotum"
       vb.gui = true
@@ -52,7 +52,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "cont_int" do |cont_int|
     cont_int.vm.box = "hysds/cont_int"
     cont_int.vm.box_version = "4.0.0"
-    cont_int.vm.network "private_network", ip: "192.168.56.105"
+    cont_int.vm.network "private_network", type: "dhcp"
     cont_int.vm.provider "virtualbox" do |vb|
       vb.name = "cont_int"
       vb.gui = true
