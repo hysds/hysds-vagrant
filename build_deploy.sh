@@ -4,7 +4,7 @@ BASE_PATH=$(cd "${BASE_PATH}"; pwd)
 
 if [ "$#" -ne 1 ]; then
   echo "Usage: $0 <version>"
-  echo "e.g.: $0 4.0.0-rc.0"
+  echo "e.g.: $0 5.2.1"
   exit 1
 fi
 VERSION=$1
@@ -16,7 +16,7 @@ for i in base mozart metrics grq factotum cont_int; do
   vagrant up
   vagrant package --base $i
   vagrant cloud auth login
-  vagrant cloud publish -f -d "HySDS CentOS7 $i box." --version-description "Version $VERSION" -r -c $(md5 -q package.box) -C md5 hysds/$i $VERSION virtualbox package.box
+  vagrant cloud publish -f -d "HySDS Oracle Linux 8 $i box." --version-description "Version $VERSION" -r -c $(md5 -q package.box) -C md5 hysds/$i $VERSION virtualbox package.box
   vagrant destroy -f
   cd ..
 done
