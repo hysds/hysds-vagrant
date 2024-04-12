@@ -14,7 +14,7 @@ for i in base mozart metrics grq factotum cont_int; do
   cd $i
   vagrant plugin install vagrant-vbguest
   vagrant up
-  vagrant package --base $i
+  vagrant package
   vagrant cloud auth login
   vagrant cloud publish -f -d "HySDS Oracle Linux 8 $i box." --version-description "Version $VERSION" -r -c $(md5 -q package.box) -C md5 hysds/$i $VERSION virtualbox package.box
   vagrant destroy -f

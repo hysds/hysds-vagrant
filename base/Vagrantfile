@@ -22,9 +22,9 @@ Vagrant.configure("2") do |config|
   config.ssh.insert_key = false
 
   # Set vagrant password
-  config.ssh.username = "vagrant"
-  config.ssh.password = "vagrant"
-  config.ssh.keys_only = false
+  # config.ssh.username = "vagrant"
+  # config.ssh.password = "vagrant"
+  # config.ssh.keys_only = false
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -81,6 +81,7 @@ Vagrant.configure("2") do |config|
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
+    set -ex
     dnf install -y oracle-epel-release-el8
     dnf update -y
     dnf install -y puppet wget curl git sudo 'dnf-command(config-manager)' which tar vim
